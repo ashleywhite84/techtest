@@ -25,6 +25,10 @@ belong to which areas of the business so that specific actions can be performed.
   Typescript
 * Do not edit `surecloud-cdk-scenario-prerequisite-stack.ts`
 
+## Setup
+to run the tests for the new deployment running the `npm run test` command will test both stacks, the deployment commands below will deploy the stack out.
+Running the `node` command below  will then invoke the lambda function bring back all of the tag information
+
 ## Useful commands
 
 * `npm install`     installs the dependencies required for the app
@@ -32,8 +36,20 @@ belong to which areas of the business so that specific actions can be performed.
 * `npm run watch`   watch for changes and compile
 * `npm run test`    perform the jest unit tests
 * `cdk deploy surecloud-cdk-scenario-prerequisite-stack` deploy prerequisite stack to your default AWS account/region
+* `cdk deploy Ec2TagInfo` deploy the lambda stack to your default AWS account/region
 * `cdk diff`        compare deployed stacks with current state
 * `cdk synth`       emits the synthesized CloudFormation template
 * `cdk destroy surecloud-cdk-scenario-prerequisite-stack` destroys prerequisite stack from your default AWS
   account/region
+* `cdk destroy Ec2TagInfo` destroys Lambda stack from your default AWS account/region
+* `node .\invoke-lambda\invoke-lambda.js` Run test against the Lambda function to pull back the tag information
 
+## Deployment of stacks
+
+* `chmod +x deploy.sh`
+* `./deploy.sh` This script will install dependancies, run test cases then deploy both stacks out before invoking the lambda
+
+## Destroy all stacks
+
+* `chmod +x destroy.sh`
+* `./destroy.sh` This script will destroy all of the stacks
